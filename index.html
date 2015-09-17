@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dmitriy Liokumovich</title>	
+<title>Home | Dmitriy Liokumovich</title>
+<link type="text/css" rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+	function chTitle(arg)
+	{
+		if(arg==1)
+			document.title="To: Contact Me"
+		else if(arg==2)
+			document.title="To: About Me"
+		else
+			document.title="To: Projects"
+	}	
+</script>
 </head>	
 <body>
 	<div id="header">
@@ -9,15 +21,20 @@
 		<h3>A Personal Portfolio</h3>
 	</div>
 	<div id="body">
-		<p>Welcome to my webpage, looks like you managed to find it somehow. Here you can find information about me, my projects (soon,) and my contact information. </p>
+		<p>Welcome to my webpage, looks like you managed to find it somehow. Here you can find information about me, my projects and my contact information. </p>
 		<div id="frontpics"> 
-			<img />
-			<img />
-			<img />
+			<a onmouseover="chTitle(1)" href="contact.html"><img src="imgs/contact.jpg" /></a>
+			<a onmouseover="chTitle(2)" href="aboutme.html"><img src="imgs/me.jpg" /></a>
+			<a onmouseover="chTitle(3)" href="projects.html"><img src="imgs/proj.gif" /></a>
 		</div>
 	</div>
 	<div id="sidebar">
-
+		<ul id="actualSidebar">
+			<a href="index.html"><li><p class="sb">Home</p></li></a>
+			<a href="aboutme.html"><li><p class="sb">About Me</li></p></a>
+			<a href="contact.html"><li><p class="sb">Contact Me</li></p></a>
+			<a href="proj.html"><li><p class="sb">Projects</li></p></a>
+		</ul>
 	</div>	
 </body>
 </html>

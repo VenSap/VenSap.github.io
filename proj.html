@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Projects | Dmitriy Liokumovich</title>
+<link type="text/css" rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+	var status=0;
+	function incr()
+	{
+		status++;
+		document.getElementById('im').src=("imgs/comp"+((status%2)+1)+".jpg");
+	}
+</script>
+</head>	
+<body>
+	<div id="header">
+		<h1>Dmitriy Liokumovich</h1>
+		<h3>A Personal Portfolio</h3>
+	</div>
+	<div id="body">
+		<p>Here's a list of the projects that I currently have, in picture form: </p>
+		<img id="im" src="imgs/comp1.jpg">
+		<a onclick="incr()"><h4>Next</h4></a>
+	</div>
+	<div id="sidebar">
+		<ul id="actualSidebar">
+			<a href="index.html"><li><p class="sb">Home</p></li></a>
+			<a href="aboutme.html"><li><p class="sb">About Me</li></p></a>
+			<a href="contact.html"><li><p class="sb">Contact Me</li></p></a>
+			<a href="proj.html"><li><p class="sb">Projects</li></p></a>
+		</ul>
+	</div>	
+</body>
+</html>
