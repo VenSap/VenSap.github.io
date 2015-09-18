@@ -6,26 +6,43 @@
 <script type="text/javascript">
 	function chTitle(arg)
 	{
+		var pt=document.getElementById('loc');
 		if(arg==1)
-			document.title="To: Contact Me"
+		{
+			document.title="To: Contact Me";
+			pt.innerHTML="Contact Me";
+		}
 		else if(arg==2)
-			document.title="To: About Me"
+		{
+			document.title="To: About Me";
+			pt.innerHTML="About Me";
+		}
+		else if(arg==0)
+		{
+			document.title="Home | Dmitriy Liokumovich";
+			pt.innerHTML="Click on an image to navigate, or use the sidebar."
+		}
 		else
-			document.title="To: Projects"
+		{
+			document.title="To: Projects";
+			pt.innerHTML="Projects";
+		}
 	}	
 </script>
 </head>	
 <body>
 	<div id="header">
 		<h1>Dmitriy Liokumovich</h1>
+		<h2>Computer Science Student at the University of Illinois</h2>
 		<h3>A Personal Portfolio</h3>
 	</div>
 	<div id="body">
 		<p>Welcome to my webpage, looks like you managed to find it somehow. Here you can find information about me, my projects and my contact information. </p>
 		<div id="frontpics"> 
-			<a onmouseover="chTitle(1)" href="contact.html"><img src="imgs/contact.jpg" /></a>
-			<a onmouseover="chTitle(2)" href="aboutme.html"><img src="imgs/me.jpg" /></a>
-			<a onmouseover="chTitle(3)" href="projects.html"><img src="imgs/proj.gif" /></a>
+			<a onmouseover="chTitle(1)" onmouseout="chTitle(0)" href="contact.html"><img src="imgs/contact.jpg" /></a>
+			<a onmouseover="chTitle(2)" onmouseout="chTitle(0)" href="aboutme.html"><img src="imgs/me.jpg" /></a>
+			<a onmouseover="chTitle(3)" onmouseout="chTitle(0)" href="proj.html"><img src="imgs/proj.gif" /></a>
+			<b><p id="loc">Click on an image to navigate, or use the sidebar.</p></b>
 		</div>
 	</div>
 	<div id="sidebar">
