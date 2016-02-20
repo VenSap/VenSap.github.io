@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<TITLE>Civ 5 Randomiser</TITLE>
+		<style>
+			body{
+				font-family: "Arial"
+			}
+
+		</style>
+		<script type="text/javascript">
+			
+			function genCivs()
+			{
+				var civs=["America","Arabia","Assyria","Austria","Aztecs","Babylon", //5
+				"Brazil","Byzantium","Carthage","Celts","China","Denmark",
+				"Netherlands",//12
+				"Egypt","England","Ethiopia","France","Germany","Greece","Huns", //19
+				"Inca","India","Indonesia","Iroquois","Japan","Korea", //25
+				"Maya","Mongolia","Morrocco", "Ottomans","Persia","Poland", //31
+				"Polynesia","Portugal","Rome","Russia", //35
+				"Shoshone","Siam","Songhai","Spain","Sweden","Venice","Zulu"];
+				var n=document.getElementById("numCivs").value;
+				document.getElementById("out").innerHTML="";
+				//checking numbers, update to be more dynamic later
+				if(n>18 || n<1)
+				{
+					alert("Invalid Number.");
+					return;
+				}
+				//remove invalid civs
+				if(!document.getElementById("gk").checked)
+				{
+						civs[3]=null; civs[8]=null; civs[9]=null; civs[26]=null; civs[7]=null; civs[19]=null; civs[15]=null; civs[40]=null; civs[12]=null;
+				}
+				if(!document.getElementById("bnw").checked)
+				{
+					civs[31]=null; civs[2]=null; civs[6]=null; civs[42]=null; civs[33]=null; civs[22]=null; civs[28]=null; civs[41]=null; civs[36]=null;
+				}
+				if(!document.getElementById("gk").checked && !document.getElementById("si".checked))
+					civs[39]=null;
+				if(!document.getElementById("bnw").checked && !document.getElementById("gk".checked))
+					civs[15]=null;
+				if(!document.getElementById("bab").checked)
+					civs[5]=null;
+				if(!document.getElementById("si").checked)
+					civs[20]=null;
+				if(!document.getElementById("po").checked)
+					civs[32]=null;
+				if(!document.getElementById("da").checked)
+					civs[11]=null;
+				if(!document.getElementById("dprk").checked)
+					civs[25]=null;
+				//now time to choose
+				for(var i=0; i<n; i++)
+				{
+					do
+					{
+						var rand=civs[Math.floor(Math.random()*43)];
+						//alert(rand);
+					}while(rand==null);
+					document.getElementById("out").innerHTML+="<li>"+rand+"</li>";
+
+				}
+			}
+
+		</script>
+	</head>
+	<body>
+		<h1>Civ 5 Random Civ Combo Generator</h1>
+		<h2>Options:</h2>
+		<label for="numCivs">Number of Civs: </label><input type="number" id="numCivs"></input><br/>
+		<h3>DLCs Owned:</h3>
+		<label for="gk">Gods and Kings: </label><input type="checkbox" id="gk"></input><br/>
+		<label for="bnw">Brave New World: </label><input type="checkbox" id="bnw"></input><br/>
+		<label for="bab">Babylon: </label><input type="checkbox" id="bab"></input><br/>
+		<label for="si">Spain & Inca: </label><input type="checkbox" id="si"></input><br/>
+		<label for="po">Polynesia: </label><input type="checkbox" id="po"></input><br/>
+		<label for="da">Denmark: </label><input type="checkbox" id="da"></input><br/>
+		<label for="dprk">Korea: </label><input type="checkbox" id="dprk"></input><br/>
+		<button type="button" onclick="genCivs()">Go!</button>
+		<h2>Results:</h2>
+		<ol id="out">
+		</ol>
+	</body>
+</html>
